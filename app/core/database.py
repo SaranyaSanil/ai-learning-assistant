@@ -2,14 +2,17 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/ai_learning_assistant"
+from app.core.config import settings
 
-engine = create_engine(DATABASE_URL)
+engine = create_engine(
+    settings.DATABASE_URL
+)
 
 SessionLocal = sessionmaker(
     autocommit=False,
     autoflush=False,
-    bind=engine
+    bind=engine,
+    expire_on_commit=False
 )
 
 Base = declarative_base()
