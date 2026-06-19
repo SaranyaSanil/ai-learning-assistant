@@ -1,0 +1,32 @@
+meta {
+  name: Create User
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://127.0.0.1:8000/users
+  body: multipartForm
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "A2",
+    "email": "saranya1q112@gmail.com",
+    "password": "test123"
+  }
+}
+
+body:multipart-form {
+  name: user 3 @contentType(text)
+  username: user 3 @contentType(text)
+  email: user3@xyz.com @contentType(text)
+  password: user 3 @contentType(text)
+  profile_image_url: @file(C:\Users\Saranya\Pictures\Screenshots\Screenshot 2025-10-24 084223.png) @contentType(files)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

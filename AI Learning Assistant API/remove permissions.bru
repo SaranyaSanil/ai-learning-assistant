@@ -1,0 +1,20 @@
+meta {
+  name: remove permissions
+  type: http
+  seq: 16
+}
+
+delete {
+  url: http://127.0.0.1:8000/roles/3/permissions/3
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

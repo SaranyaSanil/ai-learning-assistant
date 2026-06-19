@@ -1,0 +1,20 @@
+meta {
+  name: get user by id
+  type: http
+  seq: 7
+}
+
+get {
+  url: http://127.0.0.1:8000/users/3
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

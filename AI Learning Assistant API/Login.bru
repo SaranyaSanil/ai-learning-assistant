@@ -1,0 +1,34 @@
+meta {
+  name: Login
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://127.0.0.1:8000/users/login
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+body:json {
+  {
+      "username": "user1",
+      "password": "user1"
+  }
+}
+
+tests {
+  bru.setEnvVar(
+    "access_token",
+    res.body.data.access_token
+  );
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

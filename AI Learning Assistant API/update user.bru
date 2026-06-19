@@ -1,0 +1,28 @@
+meta {
+  name: update user
+  type: http
+  seq: 8
+}
+
+patch {
+  url: http://127.0.0.1:8000/users/36
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+body:json {
+  {
+    "name": "Admin1",
+    "username": "admin1",
+    "email": "admin1@xyz.com"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

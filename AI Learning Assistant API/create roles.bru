@@ -1,0 +1,26 @@
+meta {
+  name: create roles
+  type: http
+  seq: 10
+}
+
+post {
+  url: http://127.0.0.1:8000/roles
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+body:json {
+  {
+    "name": "Admin 1"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

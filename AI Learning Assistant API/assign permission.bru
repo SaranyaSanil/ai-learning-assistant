@@ -1,0 +1,26 @@
+meta {
+  name: assign permission
+  type: http
+  seq: 15
+}
+
+post {
+  url: http://127.0.0.1:8000/roles/2/assign-permissions
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+body:json {
+  {
+      "permission_ids": [9,8,7,1]
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

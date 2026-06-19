@@ -1,0 +1,20 @@
+meta {
+  name: Delete user
+  type: http
+  seq: 6
+}
+
+delete {
+  url: http://127.0.0.1:8000/users/delete/34
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

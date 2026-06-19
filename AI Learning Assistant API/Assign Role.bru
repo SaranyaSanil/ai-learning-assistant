@@ -1,0 +1,26 @@
+meta {
+  name: Assign Role
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://127.0.0.1:8000/users/3/role
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+body:json {
+  {
+    "role_id": 3
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
