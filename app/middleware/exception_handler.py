@@ -5,7 +5,8 @@ from http import HTTPStatus
 from app.exceptions.custom_exception import (
     BadRequest,
     ServiceError,
-    UnauthorizedError
+    UnauthorizedError,
+    ResourceNotFoundError
 )
 
 
@@ -47,5 +48,44 @@ async def unauthorized_exception_handler(
         content={
             "success": False,
             "message": str(exc)
+        }
+    )
+
+async def resource_not_found_exception_handler(
+    request: Request,
+    exc: ResourceNotFoundError
+):
+
+    return JSONResponse(
+        status_code=HTTPStatus.NOT_FOUND,
+        content={
+            "success": False,
+            "message": str(exc)
+        }
+    )
+
+async def expired_signature_exception_handler(
+    request: Request,
+    exc: Exception
+):
+
+    return JSONResponse(
+        status_code=HTTPStatus.UNAUTHORIZED,
+        content={
+            "success": False,
+            "message": "Token has expired"
+        }
+    )
+
+async def invalid_token_exception_handler(
+    request: Request,
+    exc: Exception
+):
+
+    return JSONResponse(
+        status_code=HTTPStatus.UNAUTHORIZED,
+        content={
+            "success": False,
+            "message": "Invalid token"
         }
     )

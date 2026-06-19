@@ -1,11 +1,11 @@
 meta {
-  name: Get current user
+  name: get user by id
   type: http
-  seq: 4
+  seq: 7
 }
 
 get {
-  url: http://127.0.0.1:8000/users/current_user
+  url: http://127.0.0.1:8000/users/3
   body: none
   auth: bearer
 }

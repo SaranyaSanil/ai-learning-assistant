@@ -7,13 +7,17 @@ meta {
 post {
   url: http://127.0.0.1:8000/users/login
   body: json
-  auth: inherit
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
 }
 
 body:json {
   {
-      "username": "Saranya",
-      "password": "saranya"
+      "username": "user1",
+      "password": "user1"
   }
 }
 

@@ -1,3 +1,5 @@
+from typing import Optional
+
 from fastapi import Form
 from pydantic import BaseModel, EmailStr
 
@@ -26,7 +28,20 @@ class UserCreate(BaseModel):
 
 class UserLogin(BaseModel):
     username: str
-    password: str
+    password: str 
+
+class AssignRoleRequest(BaseModel):
+    role_id: int
+
+
+class UpdateUserRequest(BaseModel):
+    name: Optional[str] = None
+    username: Optional[str] = None
+    email: Optional[EmailStr] = None
+
+class ChangePasswordRequest(BaseModel):
+    old_password: str
+    new_password: str
 
 # ---------- RESPONSE ----------
 class UserResponse(BaseModel):
@@ -35,7 +50,12 @@ class UserResponse(BaseModel):
     username: str
     email: EmailStr
     profile_image_url: str | None = None
+    role_id: Optional[int] = None
 
-
+class AssignRoleResponse(BaseModel):
+    id: int
+    username: str
+    role_id: int
+    
     class Config:
         from_attributes = True   

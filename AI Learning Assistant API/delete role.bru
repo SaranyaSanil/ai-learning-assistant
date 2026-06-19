@@ -1,11 +1,11 @@
 meta {
-  name: Get current user
+  name: delete role
   type: http
-  seq: 4
+  seq: 13
 }
 
-get {
-  url: http://127.0.0.1:8000/users/current_user
+delete {
+  url: http://127.0.0.1:8000/roles/8
   body: none
   auth: bearer
 }

@@ -16,3 +16,12 @@ class BadRequest(Exception):
 
 class UnauthorizedError(Exception):
     pass
+
+class ResourceNotFoundError(Exception):
+    pass
+
+class ExpiredSignatureError(Exception):
+    pass
+
+class InvalidTokenError(Exception):
+    pass

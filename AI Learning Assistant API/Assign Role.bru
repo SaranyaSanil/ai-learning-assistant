@@ -1,17 +1,23 @@
 meta {
-  name: Get current user
+  name: Assign Role
   type: http
   seq: 4
 }
 
-get {
-  url: http://127.0.0.1:8000/users/current_user
-  body: none
+put {
+  url: http://127.0.0.1:8000/users/3/role
+  body: json
   auth: bearer
 }
 
 auth:bearer {
   token: {{access_token}}
+}
+
+body:json {
+  {
+    "role_id": 3
+  }
 }
 
 settings {

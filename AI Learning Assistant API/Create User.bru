@@ -5,14 +5,9 @@ meta {
 }
 
 post {
-  url: http://127.0.0.1:8000/users?name=Saranya
+  url: http://127.0.0.1:8000/users
   body: multipartForm
   auth: inherit
-}
-
-params:query {
-  name: Saranya
-  : 
 }
 
 body:json {
@@ -24,10 +19,10 @@ body:json {
 }
 
 body:multipart-form {
-  name: Saranya @contentType(text)
-  username: Saranya31 @contentType(text)
-  email: Saranyaa@xyz.com @contentType(text)
-  password: saranya @contentType(text)
+  name: user 3 @contentType(text)
+  username: user 3 @contentType(text)
+  email: user3@xyz.com @contentType(text)
+  password: user 3 @contentType(text)
   profile_image_url: @file(C:\Users\Saranya\Pictures\Screenshots\Screenshot 2025-10-24 084223.png) @contentType(files)
 }
 
